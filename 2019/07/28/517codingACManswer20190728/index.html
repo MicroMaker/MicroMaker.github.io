@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="xmASWYx0Kx">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+  <meta name="description" content="三人组队开黑ACM膜你赛  果然我最蔡 我就写了ACF所以就写这些吧awa Problem A 人话：给你一个w×h的矩形蛋糕，然后告诉你两个蜡烛的坐标，两个蜡烛都在网格点上且不在蛋糕边缘，问如何切一刀能把蛋糕分成两块且两块分别有一个蜡烛 分类讨论：  第一种情况（p1），蜡烛的y相等：这时候，我们可以从x较小的蜡烛的“底部”切到x较大的蜡烛的顶部 第二种情况（p2），蜡烛的x相等：这时候，可以从">
+<meta name="keywords" content="OI之旅 - 解题报告">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20190728三人开黑517codingACM模拟赛">
+<meta property="og:url" content="http://micromaker.github.io/2019/07/28/517codingACManswer20190728/index.html">
+<meta property="og:site_name" content="MicroMaker&#39;s Blog">
+<meta property="og:description" content="三人组队开黑ACM膜你赛  果然我最蔡 我就写了ACF所以就写这些吧awa Problem A 人话：给你一个w×h的矩形蛋糕，然后告诉你两个蜡烛的坐标，两个蜡烛都在网格点上且不在蛋糕边缘，问如何切一刀能把蛋糕分成两块且两块分别有一个蜡烛 分类讨论：  第一种情况（p1），蜡烛的y相等：这时候，我们可以从x较小的蜡烛的“底部”切到x较大的蜡烛的顶部 第二种情况（p2），蜡烛的x相等：这时候，可以从">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/28/elzfOK.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/28/e1S6HS.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/28/e1pyx1.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/28/e1C3Xq.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/28/e1VMVI.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/28/e1ZvnJ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/28/e1mnr4.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/28/e1mUqH.png">
+<meta property="og:updated_time" content="2019-07-28T13:44:58.659Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="20190728三人开黑517codingACM模拟赛">
+<meta name="twitter:description" content="三人组队开黑ACM膜你赛  果然我最蔡 我就写了ACF所以就写这些吧awa Problem A 人话：给你一个w×h的矩形蛋糕，然后告诉你两个蜡烛的坐标，两个蜡烛都在网格点上且不在蛋糕边缘，问如何切一刀能把蛋糕分成两块且两块分别有一个蜡烛 分类讨论：  第一种情况（p1），蜡烛的y相等：这时候，我们可以从x较小的蜡烛的“底部”切到x较大的蜡烛的顶部 第二种情况（p2），蜡烛的x相等：这时候，可以从">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/07/28/elzfOK.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="MicroMaker's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://micromaker.github.io/2019/07/28/517codingACManswer20190728/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>20190728三人开黑517codingACM模拟赛 | MicroMaker's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a href="https://github.com/MicroMaker" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MicroMaker's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">My Life</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-acgimage">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/ACGImage/" rel="section"><i class="menu-item-icon fa fa-fw fa-ACGImage"></i> <br>ACGImage</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://micromaker.github.io/2019/07/28/517codingACManswer20190728/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MicroMaker">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s2.ax1x.com/2019/08/05/eR8FjU.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MicroMaker's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">20190728三人开黑517codingACM模拟赛
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-28 20:19:55 / 修改时间：21:44:58" itemprop="dateCreated datePublished" datetime="2019-07-28T20:19:55+08:00">2019-07-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/07/28/517codingACManswer20190728/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/07/28/517codingACManswer20190728/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+		  
+		  
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">29k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">14 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>三人组队开黑ACM膜你赛</p>
+<p><img src="https://s2.ax1x.com/2019/07/28/elzfOK.png" alt=""></p>
+<p>果然我最蔡</p>
+<p>我就写了<code>ACF</code>所以就写这些吧awa</p>
+<h4 id="Problem-A"><a href="#Problem-A" class="headerlink" title="Problem A"></a>Problem A</h4><p><img src="https://s2.ax1x.com/2019/07/28/e1S6HS.png" alt=""></p>
+<p>人话：给你一个<code>w×h</code>的矩形蛋糕，然后告诉你两个蜡烛的坐标，两个蜡烛都在网格点上且不在蛋糕边缘，问如何切一刀能把蛋糕分成两块且两块分别有一个蜡烛</p>
+<p>分类讨论：</p>
+<p><img src="https://s2.ax1x.com/2019/07/28/e1pyx1.png" alt=""></p>
+<p>第一种情况（p1），蜡烛的<code>y</code>相等：这时候，我们可以从<code>x</code>较小的蜡烛的“底部”切到<code>x</code>较大的蜡烛的顶部</p>
+<p>第二种情况（p2），蜡烛的<code>x</code>相等：这时候，可以从<code>y</code>较小的蜡烛的有“右端”切到<code>y</code>较大的蜡烛的左端</p>
+<p>剩下的情况都是<code>x</code>和<code>y</code>都不相等的了，我们称<code>x</code>较小的点位$P_1$，另一个为$P_2$</p>
+<p>第三种情况（p3），$P_2$的<code>y</code>大于$P_1$的<code>y</code>：这时候，我们可以从$P_1$的”顶端“切到$P_2$的”底端“</p>
+<p>第四种情况（p4），$P_2$的<code>y</code>小于$P_1$的<code>y</code>：这时候，我们可以从$P_1$的”底端“切到$P_2$的”顶端“</p>
+<p>这题不难，Code：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// This code Write By chtholly_micromaker(MicroMaker)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> reg register</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">t</span>&gt; <span class="title">inline</span> <span class="title">void</span> <span class="title">rd</span>(<span class="title">t</span> &amp;<span class="title">s</span>)</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	s=<span class="number">0</span>;</span><br><span class="line">	reg <span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c))</span><br><span class="line">		c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">isdigit</span>(c))</span><br><span class="line">		s=(s&lt;&lt;<span class="number">3</span>)+(s&lt;&lt;<span class="number">1</span>)+(c^<span class="number">48</span>),c=getchar();</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	freopen(<span class="string">"anniversary.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">	freopen(<span class="string">"anniversary.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</span><br><span class="line">	<span class="keyword">int</span> ax,ay,bx,by;</span><br><span class="line">	<span class="keyword">int</span> w,h;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;w&gt;&gt;h&gt;&gt;ax&gt;&gt;ay&gt;&gt;bx&gt;&gt;by;</span><br><span class="line">	<span class="keyword">if</span>(ax&gt;bx)</span><br><span class="line">		swap(ax,bx),swap(ay,by);</span><br><span class="line">	<span class="keyword">if</span>(ay==by)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(ax&gt;bx)</span><br><span class="line">			swap(ax,bx);</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;ax&lt;&lt;<span class="string">" 0 "</span>&lt;&lt;bx&lt;&lt;<span class="string">" "</span>&lt;&lt;h&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(ax==bx)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(ay&gt;by)</span><br><span class="line">			swap(ay,by);</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">"0 "</span>&lt;&lt;ay&lt;&lt;<span class="string">" "</span>&lt;&lt;w&lt;&lt;<span class="string">" "</span>&lt;&lt;by&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(ay&gt;by)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;ax&lt;&lt;<span class="string">" 0 "</span>&lt;&lt;bx&lt;&lt;<span class="string">" "</span>&lt;&lt;h&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;bx&lt;&lt;<span class="string">" 0 "</span>&lt;&lt;ax&lt;&lt;<span class="string">" "</span>&lt;&lt;h&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Problem-C"><a href="#Problem-C" class="headerlink" title="Problem C"></a>Problem C</h4><p><img src="https://s2.ax1x.com/2019/07/28/e1C3Xq.png" alt=""></p>
+<p>这大概是我们做的题目中最难的一题了（我好蔡啊）</p>
+<p>人话：告诉你<code>N</code>个选手的<code>CodeCoder</code>与<code>TopForces</code>的<code>Rating</code>，如果一个人的两个<code>Rating</code>中有一个高于另一个人，那么他就可以在<del>luogu咕值</del>排名系统中吊打那个人</p>
+<p>输出<code>N</code>行，第<code>i</code>行表示第<code>i</code>个选手能吊打的人数</p>
+<p>小朋友：贪心搞一搞，$nlogn$水过</p>
+<p>那样会有重叠的统计啊，如何处理？</p>
+<p>小朋友：emm</p>
+<p>这里要注意一点，如果<code>A</code>你能在<code>Rating</code> 上吊打<code>B</code>，而<code>B</code>能在<code>Rating</code>上吊打<code>C</code>，那么<code>A</code>肯定吊打<code>C</code></p>
+<p>小朋友：I can hack it！</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">3</span> <span class="number">8</span></span><br><span class="line"><span class="number">1</span> <span class="number">9</span></span><br><span class="line"><span class="number">2</span> <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<p>小朋友：你看<code>2</code>能吊打<code>1</code>，然后<code>3</code>能吊打<code>2</code>，可是<code>3</code>的两个<code>Rating</code>都没有<code>1</code>高啊</p>
+<p><strong>Unsuccessful hacking attempt</strong></p>
+<p>小朋友：？？？</p>
+<p><code>3</code>号选手：抱歉，在排名系统里这样就是可以为所欲为</p>
+<p>那么既然存在这样一种食物链的情况，你想到了什么？对，建图DFS</p>
+<p>若<code>A</code>能在两个<code>Rating</code>中任意一个吊打<code>B</code>，就把<code>A</code>向<code>B</code>连单向边</p>
+<p>然后样例建完图后是这样的：</p>
+<p><img src="https://s2.ax1x.com/2019/07/28/e1VMVI.png" alt=""></p>
+<p>小朋友：好了好了快点告诉我怎么求答案</p>
+<p>我们发现，从第<code>i</code>个点开始遍历所能达到的其他节点的数量就是那个节点代表的选手能吊打的数量</p>
+<p>结束了？</p>
+<p>结束了。</p>
+<p>但这样复杂度好像要爆炸啊</p>
+<p>没关系加个小贪心就变成$O(n)$了</p>
+<p>Code:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// This code Write By chtholly_micromaker(MicroMaker)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> reg register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MaxN=<span class="number">100050</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x,y,idx;</span><br><span class="line">&#125;a[MaxN];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> nxt,to;</span><br><span class="line">&#125;E[MaxN&lt;&lt;<span class="number">3</span>];</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">t</span>&gt; <span class="title">inline</span> <span class="title">void</span> <span class="title">rd</span>(<span class="title">t</span> &amp;<span class="title">s</span>)</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	s=<span class="number">0</span>;</span><br><span class="line">	reg <span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c))</span><br><span class="line">		c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">isdigit</span>(c))</span><br><span class="line">		s=(s&lt;&lt;<span class="number">3</span>)+(s&lt;&lt;<span class="number">1</span>)+(c^<span class="number">48</span>),c=getchar();</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> hd[MaxN];</span><br><span class="line"><span class="keyword">int</span> ans[MaxN];</span><br><span class="line"><span class="keyword">bool</span> vis[MaxN];</span><br><span class="line"><span class="keyword">int</span> n,en,cnt;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">adde</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	++en;</span><br><span class="line">	E[en].nxt=hd[u];</span><br><span class="line">	E[en].to=v;</span><br><span class="line">	hd[u]=en;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">cmp1</span><span class="params">(<span class="keyword">const</span> Node &amp;A,<span class="keyword">const</span> Node &amp;B)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> A.x&lt;B.x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">cmp2</span><span class="params">(<span class="keyword">const</span> Node &amp;A,<span class="keyword">const</span> Node &amp;B)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> A.y&lt;B.y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//	printf("UUUUU %d\n",u);</span></span><br><span class="line"><span class="comment">//	printf("&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; %d %d\n",u,fa);</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=hd[u];~i;i=E[i].nxt)</span><br><span class="line">	&#123;</span><br><span class="line">		reg <span class="keyword">int</span> v=E[i].to;</span><br><span class="line">		<span class="keyword">if</span>(vis[v])</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line"><span class="comment">//		printf("&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;. %d\n",v);</span></span><br><span class="line">		++cnt;</span><br><span class="line">		vis[v]=<span class="literal">true</span>;</span><br><span class="line">		dfs(v);</span><br><span class="line"><span class="comment">//		vis[v]=false;</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	freopen(<span class="string">"codecoder.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">	freopen(<span class="string">"codecoder.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</span><br><span class="line">	<span class="built_in">memset</span>(hd,<span class="number">-1</span>,<span class="keyword">sizeof</span> hd);</span><br><span class="line">	<span class="keyword">int</span> n;rd(n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">	&#123;</span><br><span class="line">		rd(a[i].x);rd(a[i].y);</span><br><span class="line">		a[i].idx=i;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(a+<span class="number">1</span>,a+n+<span class="number">1</span>,cmp1);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;++i)</span><br><span class="line">		adde(a[i+<span class="number">1</span>].idx,a[i].idx);<span class="comment">//,printf("adde: %d %d\n",a[i].idx,a[i+1].idx);</span></span><br><span class="line">	sort(a+<span class="number">1</span>,a+n+<span class="number">1</span>,cmp2);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;++i)</span><br><span class="line">		adde(a[i+<span class="number">1</span>].idx,a[i].idx);<span class="comment">//,printf("adde: %d %d\n",a[i].idx,a[i+1].idx);</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">	&#123;</span><br><span class="line"><span class="comment">//		printf("&gt;&gt;&gt;&gt;&lt;&lt;&gt;&lt;&gt;&lt;&gt;II %d\n",a[i].idx);</span></span><br><span class="line">		<span class="keyword">if</span>(!vis[a[i].idx])</span><br><span class="line"><span class="comment">//			dfs(a[i].idx);</span></span><br><span class="line">			++cnt,vis[a[i].idx]=<span class="literal">true</span>,dfs(a[i].idx);</span><br><span class="line">		ans[a[i].idx]=cnt<span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans[i]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Problem-F"><a href="#Problem-F" class="headerlink" title="Problem F"></a>Problem F</h4><p><img src="https://s2.ax1x.com/2019/07/28/e1ZvnJ.png" alt=""></p>
+<p>人话：给你<code>W×H</code>的<code>纸片1</code>和<code>w×h</code>的<code>纸片2</code>，问<code>纸片1</code>至少要折叠多少次才能变成<code>纸片2</code></p>
+<p>如果不能，就输出<code>-1</code></p>
+<p>首先把<code>w和h</code>、<code>W和H</code>变成<code>w</code>为宽、<code>h</code>为长的形式，方便比较</p>
+<p>如果$W&lt;w$或者$H&lt;h$，说明<code>纸片1</code>比<code>纸片2</code>要小，输出<code>-1</code></p>
+<p>然后来看剩下的：</p>
+<p>每次折叠最多能缩小一般的长度，那么我们每次缩小一半不就一定次数最少了么…</p>
+<p>坑点1：如果长度为<code>9</code>那么直接除以<code>2</code>等于<code>4</code>，但是如果这样折叠那折去的那一面不久是<code>5</code>么…所以每次的操作为$x=x-(x&gt;&gt;1)$而不是$x&gt;&gt;=1$.</p>
+<p>坑点2：</p>
+<p>如果单是这样操作，还是有点问题的：</p>
+<p><img src="https://s2.ax1x.com/2019/07/28/e1mnr4.png" alt=""></p>
+<p>按照我们的方法来做，这应该要两次折叠才能完成啊</p>
+<p>那如果这样呢：</p>
+<p><img src="https://s2.ax1x.com/2019/07/28/e1mUqH.png" alt=""></p>
+<p>好像只要<code>1</code>次就可以了</p>
+<p>emm</p>
+<p>把<code>W</code>和<code>H</code>给<code>swap</code>一下然后和原来的取个<code>min</code>不就好了。。。</p>
+<p>Code：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// This code Write By chtholly_micromaker(MicroMaker)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> reg register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">t</span>&gt; <span class="title">inline</span> <span class="title">void</span> <span class="title">rd</span>(<span class="title">t</span> &amp;<span class="title">s</span>)</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	s=<span class="number">0</span>;</span><br><span class="line">	reg <span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c))</span><br><span class="line">		c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">isdigit</span>(c))</span><br><span class="line">		s=(s&lt;&lt;<span class="number">3</span>)+(s&lt;&lt;<span class="number">1</span>)+(c^<span class="number">48</span>),c=getchar();</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">getdis</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	reg <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(x&gt;y)</span><br><span class="line">		x-=(x&gt;&gt;<span class="number">1</span>),++res;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	freopen(<span class="string">"folding.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">	freopen(<span class="string">"folding.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</span><br><span class="line">	<span class="keyword">int</span> W,H,w,h;</span><br><span class="line">	rd(W);rd(H);rd(w);rd(h);</span><br><span class="line">	<span class="keyword">if</span>(W&lt;H)</span><br><span class="line">		swap(W,H);</span><br><span class="line">	<span class="keyword">if</span>(w&lt;h)</span><br><span class="line">		swap(w,h);</span><br><span class="line">	<span class="keyword">if</span>(W&lt;w||H&lt;h)</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">puts</span>(<span class="string">"-1"</span>),<span class="number">0</span>;</span><br><span class="line">	reg <span class="keyword">int</span> ans=<span class="number">0x7fffffffffff</span>;</span><br><span class="line">	ans=min(ans,getdis(W,w)+getdis(H,h));</span><br><span class="line">	ans=min(ans,getdis(W,h)+getdis(H,w));</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>Ended</strong></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+      
+         <div class="my_post_copyright"> <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/07/28/517codingACManswer20190728/">20190728三人开黑517codingACM模拟赛</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 MicroMaker 的个人博客">MicroMaker</a></p>
+  <p><span>发布时间:</span>2019年07月28日 - 20:07</p>
+  <p><span>最后更新:</span>2019年07月28日 - 21:07</p>
+  <p><span>原始链接:</span><a href="/2019/07/28/517codingACManswer20190728/" title="20190728三人开黑517codingACM模拟赛">http://micromaker.github.io/2019/07/28/517codingACManswer20190728/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://micromaker.github.io/2019/07/28/517codingACManswer20190728/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+
+      
+    </div>
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OI之旅-解题报告/" rel="tag"># OI之旅 - 解题报告</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/21/solution-luogu4979/" rel="next" title="solution-luogu4979">
+                <i class="fa fa-chevron-left"></i> solution-luogu4979
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+<aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://s2.ax1x.com/2019/08/05/eR8FjU.jpg" alt="MicroMaker">
+            
+              <p class="site-author-name" itemprop="name">MicroMaker</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/MicroMaker" title="GitHub &rarr; https://github.com/MicroMaker" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:1632466445@qq.com" title="E-Mail &rarr; mailto:1632466445@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.luogu.org/space/show?uid=51376" title="Luogu &rarr; https://www.luogu.org/space/show?uid=51376" rel="noopener" target="_blank"><i class="fa fa-fw fa-luogu"></i>Luogu</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://space.bilibili.com/242561984/" title="BiliBili &rarr; https://space.bilibili.com/242561984/" rel="noopener" target="_blank"><i class="fa fa-fw fa-bilibili"></i>BiliBili</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.pixiv.net/member.php?id=32988426" title="Pixiv &rarr; https://www.pixiv.net/member.php?id=32988426" rel="noopener" target="_blank"><i class="fa fa-fw fa-pixiv"></i>Pixiv</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.zhihu.com/people/micromaker/activities" title="Zhihu &rarr; https://www.zhihu.com/people/micromaker/activities" rel="noopener" target="_blank"><i class="fa fa-fw fa-zhihu"></i>Zhihu</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://codeforces.com/profile/MicroMaker" title="CodeForces &rarr; http://codeforces.com/profile/MicroMaker" rel="noopener" target="_blank"><i class="fa fa-fw fa-codeforces"></i>CodeForces</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                PYs
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yuzhechuan.github.io" title="https://yuzhechuan.github.io" rel="noopener" target="_blank">俞某川大佬的博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://czier.pixnet.net" title="http://czier.pixnet.net" rel="noopener" target="_blank">池某琰巨佬的博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+	
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problem-A"><span class="nav-number">1.</span> <span class="nav-text">Problem A</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Problem-C"><span class="nav-number">2.</span> <span class="nav-text">Problem C</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Problem-F"><span class="nav-number">3.</span> <span class="nav-text">Problem F</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="500" height="950" src="//music.163.com/outchain/player?type=0&id=2041378326&auto=0&height=830"></iframe>
+    </div>
+  </aside>
+	
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MicroMaker</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">70k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">35 分钟</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.6.0</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共22.8k字</span>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span> <script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("12/07/2018 00:00:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'G1w5qUxz93UeSfTAm9hY6mQv-gzGzoHsz',
+        appKey: 'SUMSAAgEbgxHGjd3QwwKRNBg',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: true
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+    overflow: auto hidden;
+}
+</style>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/33.2017.newyear.model.json"},"display":{"position":"right","width":100,"height":200},"mobile":{"show":true},"log":false});</script></body>
+</html>
